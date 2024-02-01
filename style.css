@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  height: 100vh;
+  background-color: black;
+}
+
+.button {
+  padding: 10px 20px;
+}
+
+.sContainer {
+  width: 700px;
+  height: 700px;
+  border: 2px solid white;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.square {
+  border: 2px solid white;
+}
+
+.square:hover {
+  background-color: blue;
+}
