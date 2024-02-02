@@ -32,11 +32,11 @@
 .sContainer {
   width: 700px;
   height: 700px;
-  border: 1px solid white;
   display: flex;
   flex-flow: row wrap;
 }
 
 .square {
-  border: 1px solid white;
+  border: 1px solid black;
+  background-color: hsl(0, 0%, 100%);
 }

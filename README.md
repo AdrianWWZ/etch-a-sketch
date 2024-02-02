@@ -2,7 +2,7 @@
 
 ## Etch-a-Sketch
 
-By hovering over the squares, the background color of the squares will change to a blue.
+By hovering over the squares, the background color of the squares will darken the squares until it is completely black.
 
 Default size is 16 squares.
 

@@ -16,7 +16,6 @@ button.addEventListener("click", () => {
   if (input > 0 && input <= 100) {
     userInput = input;
   }
-
   document.querySelectorAll(".square").forEach((square) => {
     square.setAttribute(
       "style",
@@ -36,10 +35,13 @@ const createSquares = () => {
       "style",
       `width: calc(100% / ${userInput}); height: calc(100% / ${userInput});`
     );
+    let numOver = 0;
     square.addEventListener("mouseover", () => {
+      if (numOver <= 10) numOver++;
+
       square.setAttribute(
         "style",
-        `background-color: blue; width: calc(100% / ${userInput}); height: calc(100% / ${userInput});`
+        `background-color: hsl(0, 0%, calc(100% - (10% * ${numOver}))); width: calc(100% / ${userInput}); height: calc(100% / ${userInput});`
       );
     });
     sketchContainer.appendChild(square);
