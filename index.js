@@ -7,37 +7,49 @@ container.appendChild(button);
 
 const sketchContainer = document.createElement("div");
 sketchContainer.setAttribute("class", "sContainer");
+container.appendChild(sketchContainer);
 
-let userInput = 10;
+let userInput = 16;
 button.addEventListener("click", () => {
-  let input = prompt("Enter the Size of the Sketch");
+  const input = prompt("Enter the Size of the Sketch (1 - 100)");
 
   if (input > 0 && input <= 100) {
     userInput = input;
   }
 
-  //   document.querySelectorAll(".square").forEach((square) => {
-  //     square.setAttribute(
-  //       "style",
-  //       `width: calc(100% / ${userInput}); height: calc(100% / ${userInput});`
-  //     );
-  //   });
-});
-
-for (let i = 0; i < userInput * userInput; i++) {
-  const square = document.createElement("div");
-  square.setAttribute("class", "square");
-  square.setAttribute(
-    "style",
-    `width: calc(100% / ${userInput}); height: calc(100% / ${userInput});`
-  );
-  square.addEventListener("mouseover", () => {
+  document.querySelectorAll(".square").forEach((square) => {
     square.setAttribute(
       "style",
-      `background-color: blue; width: calc(100% / ${userInput}); height: calc(100% / ${userInput});`
+      `width: calc(100% / ${userInput}); height: calc(100% / ${userInput});`
     );
   });
-  sketchContainer.appendChild(square);
-}
 
-container.appendChild(sketchContainer);
+  removeSquares();
+  createSquares();
+});
+
+const createSquares = () => {
+  for (let i = 0; i < userInput * userInput; i++) {
+    const square = document.createElement("div");
+    square.setAttribute("class", "square");
+    square.setAttribute(
+      "style",
+      `width: calc(100% / ${userInput}); height: calc(100% / ${userInput});`
+    );
+    square.addEventListener("mouseover", () => {
+      square.setAttribute(
+        "style",
+        `background-color: blue; width: calc(100% / ${userInput}); height: calc(100% / ${userInput});`
+      );
+    });
+    sketchContainer.appendChild(square);
+  }
+};
+
+const removeSquares = () => {
+  while (sketchContainer.firstChild) {
+    sketchContainer.removeChild(sketchContainer.firstChild);
+  }
+};
+
+createSquares();
